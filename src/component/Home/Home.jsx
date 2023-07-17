@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import NavBar from "../Shared/NavBar/NavBar";
 import Tabss from "../Tabs/Tabss";
 import Carosuel from "./Carosuel/Carosuel";
