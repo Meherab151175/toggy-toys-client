@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
