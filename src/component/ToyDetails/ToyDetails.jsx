@@ -1,7 +1,5 @@
 import { useParams } from "react-router-dom";
-import NavBar from "../Shared/NavBar/NavBar";
 import { useEffect, useState } from "react";
-import Footer from "../Shared/Footer/Footer";
 
 const ToyDetails = () => {
   const { id } = useParams();
