@@ -38,7 +38,7 @@ const ToyDetails = () => {
           </div>
         </div>
       </div>
-      {/* <Footer className=''></Footer> */}
+      
     </div>
   );
 };
