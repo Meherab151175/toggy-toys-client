@@ -15,7 +15,6 @@ const ToyCard = ({toy}) => {
                   <div className=" w-12 h-12">
                     <img
                       src={picture}
-                      alt="Avatar Tailwind CSS Component"
                     />
                   </div>
                 </div>
