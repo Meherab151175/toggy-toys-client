@@ -4,9 +4,9 @@ const Update = ({ toy, control, setControl, isModalOpen,closeModal }) => {
     event.preventDefault();
 
     const form = event.target;
-    const toyName = form.toyname.value;
+    const toy_name = form.toyname.value;
     const photo = form.photo.value;
-    const subCategory = form.subCategory.value;
+    const sub_category = form.subCategory.value;
     const price = form.price?.value;
     const rating = form.rating?.value;
     const quantity = form.quantity?.value;
@@ -14,11 +14,11 @@ const Update = ({ toy, control, setControl, isModalOpen,closeModal }) => {
     const _id = form.id?.value;
 
     const data = {
-      toyPic: photo,
-      toyName,
+      picture: photo,
+      toy_name,
       price,
       rating,
-      subCategory,
+      sub_category,
       quantity,
       description: desc,
       _id,
@@ -59,7 +59,7 @@ const Update = ({ toy, control, setControl, isModalOpen,closeModal }) => {
                     type="text"
                     placeholder="photoURL"
                     name="photo"
-                    defaultValue={toy?.toyPic}
+                    defaultValue={toy?.picture}
                     className="input input-bordered"
                   />
                 </div>
@@ -71,7 +71,7 @@ const Update = ({ toy, control, setControl, isModalOpen,closeModal }) => {
                     type="text"
                     placeholder="toy name"
                     name="toyname"
-                    defaultValue={toy?.toyName}
+                    defaultValue={toy?.toy_name}
                     className="input input-bordered"
                   />
                 </div>
@@ -90,7 +90,7 @@ const Update = ({ toy, control, setControl, isModalOpen,closeModal }) => {
                     type="text"
                     placeholder="sub category"
                     name="subCategory"
-                    defaultValue={toy?.subCategory}
+                    defaultValue={toy?.sub_category}
                     className="input input-bordered"
                   />
                 </div>
