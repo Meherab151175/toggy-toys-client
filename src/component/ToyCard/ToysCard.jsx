@@ -5,7 +5,6 @@ import '@smastrom/react-rating/style.css'
 
 const ToysCard = () => {
     const allCarToys = useLoaderData();
-// console.log(allCarToys)
 
 
     
