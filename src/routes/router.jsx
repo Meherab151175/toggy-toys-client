@@ -93,34 +93,3 @@ const router = createBrowserRouter([
 
 export default router;
 
-// children:[
-//   {
-//     path:'/',
-//     element:<Home />
-//   },
-
-//   {
-//     path:'/myToys',
-//     element:<PrivateRoute><MyToys /></PrivateRoute>
-//   },
-
-//   {
-//     path:'/login',
-//     element:<Login />
-//   },
-//   {
-//     path:'/register',
-//     element:<Register />
-//   },
-//   {
-
-
-
-// ]
-
-/* 
-      {
-        path:'/allToys',
-        element:<AllToys />
-      },
- */
