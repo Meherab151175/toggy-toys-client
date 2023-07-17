@@ -1,57 +1,96 @@
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Tab, Tabs, TabList } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+// import TabCard from "./TabCard";
 
-const Tabss = ({ toys, handleTab }) => {
-  console.log(toys.length);
- 
-  
+const Tabss = () => {
+  const [tabIndex, setTabIndex] = useState(0);
+  // const [tabData, setTabData] = useState([]);
 
-  if(toys.length > 0){  return (
-    <Tabs className="container mx-auto">
-      <TabList>
-        <Tab>
-          <button
-            onClick={() => handleTab("mini police car")}
-            className="btn btn-active btn-neutral"
-          >
-            mini police car
-          </button>
-          </Tab>
-          <Tab>
-          <button
-            onClick={() => handleTab("	remote control toy car")}
-            className="btn btn-active btn-neutral"
-          >
-            remote control toy car
-          </button>
-        </Tab>
-      </TabList>
+  const [categories, setCategories] = useState([]);
 
-      {toys.map((toy, index) => (
-        <TabPanel key={index}>
-          <div className="card w-96 bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-              <img
-                src={toy?.toyPic}
-                className="rounded-xl"
-              />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">{toy?.toyName}</h2>
-              <p className="grid grid-cols-2 gap-4">
-                <p>Price : {toy?.price} $</p>
-                <p>{toy?.rating}</p>
-              </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">View Details</button>
-              </div>
-            </div>
-          </div>
-        </TabPanel>
-      ))}
+  useEffect(() => {
+    fetch("http://localhost:5000/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
+
+
+
+  return (
+    <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+              <TabList>
+          {categories?.map((category) => (
+            <Tab disabledClassName="border-0 outline-0" key={category.id}>
+              <Link to={`/categories/${category.id}`}>
+                {category.category_name}
+              </Link>
+            </Tab>
+          ))}
+        </TabList>
+
+
     </Tabs>
-  )}
-
+  );
 };
 
 export default Tabss;
+
+// import { useEffect, useState } from "react";
+// import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+// import "react-tabs/style/react-tabs.css";
+// import TabCard from "./TabCard";
+
+// const Tabss = () => {
+//   const [tabIndex, setTabIndex] = useState(0);
+//   const [tabNames, setTabName] = useState([]);
+//   const [tabData, setTabData] = useState([]);
+
+//   useEffect(() => {
+//     fetch(`http://localhost:5000/categories`)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setTabName(data);
+//       });
+//   }, []);
+
+//   useEffect(() => {
+//     if (tabNames.length > 0) {
+//       fetchData(tabNames[tabIndex]);
+//     }
+//   }, [tabIndex, tabNames]);
+
+//   const fetchData = (category) => {
+//     console.log(category)
+//     fetch(`http://localhost:5000/tabData/${category}`)
+
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setTabData(data);
+//       });
+//   };
+
+//   console.log('tabData',tabData)
+
+//   return (
+//     <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+//       <TabList>
+//         {tabNames?.map((name, index) => (
+//           <Tab key={index}>{name}</Tab>
+//         ))}
+//       </TabList>
+
+//       {tabNames?.map((name, index) => (
+//         <TabPanel key={index}>
+//           {/* Render content specific to each tab */}
+//           {tabData[index]?.map((item) => (
+//             <TabCard key={item._id} item={item} />
+//           ))}
+//         </TabPanel>
+//       ))}
+//     </Tabs>
+//   );
+// };
+
+// export default Tabss;

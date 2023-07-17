@@ -5,21 +5,49 @@ import Footer from "../Shared/Footer/Footer";
 
 const AllToys = () => {
     const [toys,setToys] = useState([])
+    const [search, setSearch] = useState('')
     
     useEffect(()=>{
         fetch('https://toggy-toys-server.vercel.app/toys')
         .then(res=>res.json())
         .then(data=>setToys(data))
     },[])
+
+    const handleSearch = () => {
+        fetch(
+          `http://localhost:5000/toySearch/${search}`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            setToys(data);
+          })
+      };
     
     
     return (
         <div>
             <NavBar />
+            <div className="join">
+  <div>
+    <div>
+      <input type="text" onChange={(e) => setSearch(e.target.value)} className="input input-bordered join-item" placeholder="Search..."/>
+    </div>
+  </div>
+  {/* <select className="select select-bordered join-item">
+    <option disabled selected>Category</option>
+    <option>Sci-fi</option>
+    <option>Drama</option>
+    <option>Action</option>
+  </select> */}
+  <div className="indicator">
+    <span className="indicator-item badge badge-secondary">new</span> 
+    <button onClick={handleSearch} className="btn join-item">Search</button>
+  </div>
+</div>
             {
                 toys.map(toy=><ToyCard key={toy._id} toy={toy} />)
             }
-        <Footer />
+            <Footer />
         </div>
     );
 };

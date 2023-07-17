@@ -1,9 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import NavBar from "../Shared/NavBar/NavBar";
 import { AuthContext } from "../../provider/AuthProvider";
 import Update from "../Update/Update";
 import Swal from 'sweetalert2';
-import Footer from "../Shared/Footer/Footer";
 
 
 const MyToys = () => {
@@ -17,13 +15,13 @@ const MyToys = () => {
         setCurrentToy(toy);
       setIsModalOpen(true);
     };
-  
+  console.log('toys',user?.email)
     const closeModal = () => {
       setIsModalOpen(false);
     };
     
     useEffect(()=>{
-        fetch(`https://toggy-toys-server.vercel.app/myToys/${user?.email}`)
+        fetch(`http://localhost:5000/myToys/${user?.email}`)
         .then(res=>res.json())
         .then(data=>setToys(data))
     },[user,control])
@@ -40,7 +38,7 @@ const MyToys = () => {
           cancelButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`https://toggy-toys-server.vercel.app/toys/${id}`, {
+            fetch(`http://localhost:5000/toys/${id}`, {
               method: 'DELETE',
             })
               .then((res) => res.json())
@@ -64,7 +62,6 @@ const MyToys = () => {
     
   return (
     <div>
-        <NavBar />
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -98,7 +95,7 @@ const MyToys = () => {
                   <div className="">
                       <div className="mask mask-squircle w-12 h-12">
                         <img
-                          src={toy?.toyPic}
+                          src={toy?.picture}
                           alt="Avatar Tailwind CSS Component"
                         />
                       </div>
@@ -153,7 +150,6 @@ const MyToys = () => {
 
         
       </div>
-      <Footer />
     </div>
   );
 };

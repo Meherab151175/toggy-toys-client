@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
-
+import { FaGoogle } from "react-icons/fa";
 const Login = () => {
-  const { loginUser,user } = useContext(AuthContext);
+  const { loginUser,user,googleSign  } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -22,6 +22,12 @@ const Login = () => {
         });
     }
   };
+
+const handleGoogleLogin = () =>{
+  googleSign()
+  .then(res=>console.log(res))
+  .catch(err=>console.log(err))
+}
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -60,6 +66,9 @@ const Login = () => {
               </span>
             </label>
           </form>
+          <div>
+            <FaGoogle onClick={handleGoogleLogin} />
+          </div>
         </div>
       </div>
     </div>

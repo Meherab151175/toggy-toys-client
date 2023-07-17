@@ -1,10 +1,8 @@
 import Footer from "../Shared/Footer/Footer";
-import NavBar from "../Shared/NavBar/NavBar";
 
 const Blog = () => {
   return (
     <div>
-        <NavBar />
         <div className="container mx-auto py-4 text-slate-950 font-bold">
       <div className="my-3 border-4 rounded-xl p-3 borderstone-800">
         <h1>

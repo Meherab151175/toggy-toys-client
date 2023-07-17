@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const ToyCard = ({toy}) => {
-    const {quantity,price,subCategory,toyPic,toyName,sellerName} = toy
+    const {quantity,price,sub_category,picture,toy_name,seller_name} = toy
     
   return (
     <div className="">
@@ -14,7 +14,7 @@ const ToyCard = ({toy}) => {
                 <div className="avatar">
                   <div className=" w-12 h-12">
                     <img
-                      src={toyPic}
+                      src={picture}
                       alt="Avatar Tailwind CSS Component"
                     />
                   </div>
@@ -22,13 +22,13 @@ const ToyCard = ({toy}) => {
               </div>
             </td>
             <td>
-              {toyName}
+              {toy_name}
             </td>
             <td>
-              {sellerName}
+              {seller_name}
             </td>
             <td>
-              {subCategory}
+              {sub_category}
             </td>
             <td>
               {quantity}
