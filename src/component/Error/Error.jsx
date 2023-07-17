@@ -1,4 +1,3 @@
-// import error from '../../assets/images/error.avif'
 
 import { Link } from 'react-router-dom';
 import './Error.css'
