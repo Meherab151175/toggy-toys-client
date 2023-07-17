@@ -12,7 +12,6 @@ const ToyDetails = () => {
       .then((res) => res.json())
       .then((data) => setToy(data));
   }, [id]);
-  // const {quantity,price,sub_category,picture,toy_name,seller_name} = toy
   return (
     <div className="mx-auto flex flex-col min-h-screen">
       {/* <NavBar /> */}
