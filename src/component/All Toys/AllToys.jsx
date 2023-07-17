@@ -33,12 +33,6 @@ const AllToys = () => {
       <input type="text" onChange={(e) => setSearch(e.target.value)} className="input input-bordered join-item" placeholder="Search..."/>
     </div>
   </div>
-  {/* <select className="select select-bordered join-item">
-    <option disabled selected>Category</option>
-    <option>Sci-fi</option>
-    <option>Drama</option>
-    <option>Action</option>
-  </select> */}
   <div className="indicator">
     <span className="indicator-item badge badge-secondary">new</span> 
     <button onClick={handleSearch} className="btn join-item">Search</button>
