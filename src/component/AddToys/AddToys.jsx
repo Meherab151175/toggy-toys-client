@@ -46,7 +46,6 @@ const AddToys = () => {
     
     return (
         <>
-        <NavBar />
         <div className="hero min-h-screen bg-base-200">
         <div className=" flex-col lg:flex-row-reverse">
           <form onSubmit={handleSubmit} className="card flex-shrink-0 w-full shadow-2xl bg-base-100">

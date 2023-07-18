@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         path: "/categories/:id",
         element: <ToysCard />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/categories/${params.id}`),
+          fetch(`https://toggy-toys-server.vercel.app/categories/${params.id}`),
       },
 
     ],

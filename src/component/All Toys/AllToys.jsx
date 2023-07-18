@@ -15,7 +15,7 @@ const AllToys = () => {
 
     const handleSearch = () => {
         fetch(
-          `http://localhost:5000/toySearch/${search}`
+          `https://toggy-toys-server.vercel.app/toySearch/${search}`
         )
           .then((res) => res.json())
           .then((data) => {

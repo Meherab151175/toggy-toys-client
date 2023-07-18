@@ -3,4 +3,4 @@ __firebase
 __Private routing
 
 #Live Wbsite link
-[Toggy World](https://toy-cars-9e729.web.app/myToys)
+[Toggy World](https://toy-cars-9e729.web.app/categories/2)

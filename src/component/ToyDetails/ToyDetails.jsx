@@ -6,7 +6,8 @@ const ToyDetails = () => {
 
   console.log(id);
   const [toy, setToy] = useState({});
-
+// https://toggy-toys-server-meherab151175.vercel.app/
+// https://toggy-toys-server.vercel.app/
   useEffect(() => {
     fetch(`https://toggy-toys-server.vercel.app/singleToy/${id}`)
       .then((res) => res.json())

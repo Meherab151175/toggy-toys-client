@@ -21,7 +21,7 @@ const MyToys = () => {
     };
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/myToys/${user?.email}`)
+        fetch(`https://toggy-toys-server.vercel.app/myToys/${user?.email}`)
         .then(res=>res.json())
         .then(data=>setToys(data))
     },[user,control])
@@ -38,7 +38,7 @@ const MyToys = () => {
           cancelButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:5000/toys/${id}`, {
+            fetch(`https://toggy-toys-server.vercel.app/toys/${id}`, {
               method: 'DELETE',
             })
               .then((res) => res.json())

@@ -24,7 +24,7 @@ const Update = ({ toy, control, setControl, isModalOpen,closeModal }) => {
       _id,
     };
     console.log(data);
-    fetch(`http://localhost:5000/update/${data._id}`, {
+    fetch(`https://toggy-toys-server.vercel.app/update/${data._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
